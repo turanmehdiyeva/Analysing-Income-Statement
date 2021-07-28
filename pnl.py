@@ -1,22 +1,17 @@
-Sale = float(input('Sales:'))
-COGS = float(input('Cost of Goods Sold:'))
-GP = Sale - COGS
-print('Gross Profit:',GP)
-mup = (GP/COGS)*100
-print('Markup on cost:',str(mup)+'%')
-gm = (GP/Sale)*100
-print('Gross marign:', str(gm)+'%')
-while True:
-    i = input('Expenses (0 to exit):\n')
-    i = float(i)
-    if i == 0:
-        break
+def income_statement():
+  sales = float(input('Enter Sales: '))
+  cogs = float(input('Enter cost of sales: '))
+  while True:
+    expenses = float(input('Enter expenses (enter 0 to exit):\n'))
+    if expenses==0:
+      break
     Total = []
-    Total.append(i)
-    Totalex = sum(Total)
-NP = GP-Totalex
-print('Net Profit',NP)
-npm = (NP/Sale)*100
-print('Net Profit Margin:', str(npm)+'%')
-pp = (NP/COGS)*100
-print('Profit Percentage:', str(pp)+'%')
+    Total.append(expenses)
+  Totalex = sum(Total)
+  gp = sales-cogs
+  np = gp-Totalex
+  mup = str(round((gp/cogs)*100,2))+'%'
+  gm = str(round((gp/sales)*100,2))+'%'
+  npm = str(round((np/sales)*100,2))+'%'
+  pp = str(round((np/cogs)*100,2))+'%'
+  print(f' Gross profit for the year is: {gp}\n Mark up on cost is: {mup}\n Gross marign is: {gm}\n Net Profit for the year is: {np}\n Net Profit Margin is: {npm}\n Profit Percentage: {pp}')
